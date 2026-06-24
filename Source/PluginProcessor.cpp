@@ -114,8 +114,7 @@ bool PanningLawsAudioProcessor::isBusesLayoutSupported (const BusesLayout& layou
     // In this template code we only support mono or stereo.
     // Some plugin hosts, such as certain GarageBand versions, will only
     // load plugins that support stereo bus layouts.
-    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::mono()
-     && layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
+    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
         return false;
 
     // This checks if the input layout matches the output layout
@@ -150,20 +149,20 @@ void PanningLawsAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, 
     // the samples and the outer loop is handling the channels.
     // Alternatively, you can process the samples with the channels
     // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        auto* channelData = buffer.getWritePointer (channel);
-        
-        // Map slider value (0 - 1) to angle (0 - pi/2)
-        // cos(pi/2) = 0, sin(pi/2) = 1
-        // cos(0)    = 1, sin(0)    = 0
-        const float theta = panPos * juce::MathConstants<float>::halfPi;
+    
+    
+    
+    
+    // Map slider value (0 - 1) to angle (0 - pi/2)
+    // cos(pi/2) = 0, sin(pi/2) = 1
+    // cos(0)    = 1, sin(0)    = 0
+    const float theta = panPos * juce::MathConstants<float>::halfPi;
 
-        if (panLaw == 0) LinearPanning(buffer, theta);
-        else if (panLaw == 1) ConstantPowerPanning(buffer, theta);
-        else dBLawPanning(buffer, theta);
+    if (panLaw == 0) LinearPanning(buffer, theta);
+    else if (panLaw == 1) ConstantPowerPanning(buffer, theta);
+    else dBLawPanning(buffer, theta);
+    
 
-    }
 }
 
 
