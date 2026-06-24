@@ -20,9 +20,10 @@ Replaces the linear gains with cosine and sine functions. Since cos<sup>2</sup>Î
 A compromise between the first two, the square root of the product of the linear and constant power gains.
 
 ### Building
-Open `Panning.jucer` in Projucer
-Select your exporter and click `Save and Open in IDE`
-Build in your IDE
+1. Open `Panning.jucer` in Projucer
+2. Select your exporter and click `Save and Open in IDE`
+3. Build in your IDE
+4. Use in DAW or JUCE's `audiopluginhost`.
 
 ### Steps Report
 1. Created the Projucer project as an audio plugin, named it Panning, set it as audio to audio.
