@@ -22,9 +22,16 @@ A compromise between the first two, the square root of the product of the linear
 ### Building
 Open `Panning.jucer` in Projucer
 Select your exporter and click `Save and Open in IDE`
-Build in your IDE.
+Build in your IDE
+
+### Steps Report
+1. Created the Projucer project as an audio plugin, named it Panning, set it as audio to audio.
+2. Implemented the three panning laws in processBlock. (see comments in code for formulas)
+3. Made the editor UI: slider for pan, combo box for law selection.
+4. Built and tested in VST3 in JUCE's `audiopluginhost`.
 
 ### Screenshots
 <img width="385" height="294" alt="-4 5dBPan" src="https://github.com/user-attachments/assets/5f2f041e-784f-4e17-bf82-4c7a8ba2861c" />
 <img width="386" height="294" alt="LinearPan" src="https://github.com/user-attachments/assets/211875ae-95bc-45ad-8b2a-8bdb3b67325c" />
 <img width="390" height="293" alt="ConstantPowerPan" src="https://github.com/user-attachments/assets/c5e96574-6184-42a1-bbfd-8c9527b8f3f8" />
+
